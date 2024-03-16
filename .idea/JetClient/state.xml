@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JetClientState">
+    <option name="draftsState">
+      <draftsState>
+        <option name="requests">
+          <list>
+            <requestState>
+              <option name="id" value="a9e7384a-74d3-4203-85b0-cf353cd42a86" />
+              <option name="method" value="GET" />
+              <option name="name" value="Draft" />
+            </requestState>
+          </list>
+        </option>
+      </draftsState>
+    </option>
+    <option name="folders">
+      <list>
+        <folderState>
+          <option name="description" value="Weather Forecast Jetpack Compose" />
+          <option name="id" value="7ce02cfc-6e87-44ec-89a2-a0fb73acf8f6" />
+          <option name="name" value="WeatherApp" />
+          <option name="requests">
+            <list>
+              <requestState>
+                <option name="description" value="Weather forecast for max 16 days" />
+                <option name="id" value="274e30ee-0ecb-480c-8029-7002d56a697c" />
+                <option name="method" value="GET" />
+                <option name="name" value="16DAYS" />
+                <option name="queryParams">
+                  <list>
+                    <queryParamState>
+                      <option name="key" value="q" />
+                      <option name="value" value="Seattle" />
+                    </queryParamState>
+                    <queryParamState>
+                      <option name="key" value="units" />
+                      <option name="value" value="metric" />
+                    </queryParamState>
+                    <queryParamState>
+                      <option name="key" value="cnt" />
+                      <option name="value" value="2" />
+                    </queryParamState>
+                    <queryParamState>
+                      <option name="key" value="appid" />
+                      <option name="value" value="ed60fcfbd110ee65c7150605ea8aceea" />
+                    </queryParamState>
+                  </list>
+                </option>
+                <option name="url" value="https://api.openweathermap.org/data/2.5/forecast/daily?q=Seattle&amp;units=metric&amp;cnt=2&amp;appid=ed60fcfbd110ee65c7150605ea8aceea" />
+              </requestState>
+            </list>
+          </option>
+          <option name="sortWeight" value="1000000" />
+          <option name="syncProperties">
+            <synchronizationPropertiesState>
+              <option name="folderPath" value="$PROJECT_DIR$/.jetclient" />
+            </synchronizationPropertiesState>
+          </option>
+        </folderState>
+      </list>
+    </option>
+    <option name="id" value="00ab6425-2f7b-4875-9ea6-e8115f427df8" />
+  </component>
+</project>
