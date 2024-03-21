@@ -33,6 +33,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.jetapp.jet_weather.data.DataOrException
 import com.jetapp.jet_weather.model.Weather
+import com.jetapp.jet_weather.navigation.WeatherScreens
 import com.jetapp.jet_weather.screens.main.component.SunDetailRow
 import com.jetapp.jet_weather.screens.main.component.WeatherDailyDetailRow
 import com.jetapp.jet_weather.screens.main.component.WeatherDetailRow
@@ -44,14 +45,14 @@ import com.jetapp.jet_weather.widgets.WeatherAppBar
 @Composable
 fun MainScreen(
     navController: NavController,
-    mainViewModel: MainViewModel = hiltViewModel()
+    mainViewModel: MainViewModel = hiltViewModel(),
+    city: String?
 ) {
     val weatherData = produceState<DataOrException<Weather, Boolean, Exception>>(
         initialValue = DataOrException(loading = true)
     ) {
-        value = mainViewModel.getWeatherData(city = "Ghaziabad")
+        value = mainViewModel.getWeatherData(city = city.toString())
     }.value
-
     if(weatherData.loading == true){
         CircularProgressIndicator()
     }else if(weatherData.data != null){
@@ -73,6 +74,9 @@ fun MainScaffold(
                 title = weather.city.name + ", ${weather.city.country}",
                 navController = navController,
                 elevation = 2.dp,
+                onAddActionClicked = {
+                    navController.navigate(WeatherScreens.SearchScreen.name)
+                }
             ){
                 Log.d("TAG", "MainScaffold: ButtonCLicked")
             }
