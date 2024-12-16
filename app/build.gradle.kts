@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -10,6 +12,11 @@ android {
     namespace = "com.jetapp.jet_weather"
     compileSdk = 34
 
+    buildFeatures {
+        compose = true
+        buildConfig =  true
+    }
+
     defaultConfig {
         applicationId = "com.jetapp.jet_weather"
         minSdk = 24
@@ -21,6 +28,21 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val secretFiles = rootProject.file("local.properties")
+        val properties = Properties()
+        properties.load(secretFiles.inputStream())
+
+
+        val apiKey = properties.getProperty("api_key") ?: ""
+
+
+        //for accessing the property using BuildConfig
+        buildConfigField(
+            type = "String",
+            name = "API_KEY",
+            value = apiKey
+        )
     }
 
     buildTypes {
